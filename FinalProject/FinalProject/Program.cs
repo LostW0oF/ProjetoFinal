@@ -7,7 +7,7 @@ namespace FinalProject
         static void Main(string[] args)
         {
             elevador elevador = new elevador();
-            elevador.MostrarAndares();
+            elevador.Menu();
         }
     }
 
