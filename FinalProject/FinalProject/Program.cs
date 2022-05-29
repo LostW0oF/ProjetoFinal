@@ -1,7 +1,7 @@
-﻿using FinalProject.Model;
+﻿using ProjetoElevador_doc.Model;
 using System;
 
-namespace FinalProject
+namespace ProjetoElevador
 {
     internal class Program
     {

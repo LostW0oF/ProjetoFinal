@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FinalProject.Model
+namespace ProjetoElevador_doc.Model
 {
     class elevador
     {
