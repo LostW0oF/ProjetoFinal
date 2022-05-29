@@ -7,7 +7,7 @@ namespace FinalProject
         static void Main(string[] args)
         {
             elevador elevador = new elevador();
-            elevador.MostrarAndares();
+            elevador.Menu();
         }
     }
 
@@ -23,7 +23,7 @@ namespace FinalProject
             do
             {
                 MostrarAndares();
-                int AndarEscolhido = int.Parse(Console.ReadLine());
+                string AndarEscolhido = Console.ReadLine().ToUpper();
                 Console.Clear();
                 andarAtual(AndarEscolhido);
             }
@@ -40,88 +40,97 @@ namespace FinalProject
                     4 - Cobertura
                     5 - Area de serviço
                     6 - Sair");
+            Console.WriteLine(@"Digite A para subir até ao andar desejado e B para descer e C para sair");
         }
 
-        public void andarAtual(int Andar)
+        public void andarAtual(string Andar)
         {
             switch (Andar)
             {
-                case 0:
-                    Estacionamento();
+                case "A":
+                    subir();
                     break;
-                case 1:
-                    Piso();
+                case "B":
+                    descer();
                     break;
-                case 2:
-                    Lojas();
-                    break;
-                case 3:
-                    Escritorio();
-                    break;
-                case 4:
-                    Cobertura();
-                    break;
-                case 5:
-                    servico();
-                    break;
-                case 6:
-                    sair();
-                    break;
-                case 7:
+                case "C":
+                    Console.WriteLine(@"Saindo do elevador");
                     continuar = false;
                     break;
-
                 default:
                     Console.WriteLine("Esse andar Não existe.");
                     break;
             }
         }
 
-        public void Estacionamento()
+        public void subir()
         {
-            if (andar < totalAndares )
+            if(andar < totalAndares)
             {
-                Console.WriteLine($"Você subiu para o andar {andar}");
+                Console.WriteLine("Você subiu um andar");
                 andar++;
-            }
-            else if (andar > 0)
-            {
-                Console.WriteLine($"Você desceu para o andar {andar}");
+                if(andar == 1)
+                {
+                    Console.WriteLine("Você chegou ao Piso");
+                }
+                else if(andar == 2)
+                {
+                    Console.WriteLine("Você chegou as Lojas");
+                }
+                else if(andar == 3)
+                {
+                    Console.WriteLine("Você chegou aos Escritorios");
+                }
+                else if(andar == 4)
+                {
+                    Console.WriteLine("Você chegou a Cobertura");
+                }
+                else if(andar == 5)
+                {
+                    Console.WriteLine("Você chegou a Area de Servico");
+                }
             }
             else
             {
-                Console.WriteLine("Andar Atingido");
+                Console.WriteLine(@"Você chegou ao ultimo andar, não é possivel subir mais");
             }
         }
 
-        public void Piso()
+        public void descer()
         {
-            Console.WriteLine($"Andar Atingido");
-        }
-
-        public void Lojas()
-        {
-            Console.WriteLine($"Andar Atingido");
-        }
-
-        public void Escritorio()
-        {
-            Console.WriteLine("Andar Atingido");
-        }
-
-        public void Cobertura()
-        {
-            Console.WriteLine("Andar Atingido");
-        }
-
-        public void servico()
-        {
-            Console.WriteLine("Andar Atingido");
-        }
-
-        public void sair()
-        {
-            Console.WriteLine("Saindo do Elevador");
+            if(andar > 0)
+            {
+                Console.WriteLine(@"Você desceu um andar");
+                andar--;
+                if(andar == 0)
+                {
+                    Console.WriteLine("Você chegou ao Estacionamento");
+                }
+                else if(andar == 1)
+                {
+                    Console.WriteLine("Você chegou ao Piso");
+                }
+                else if(andar == 2)
+                {
+                    Console.WriteLine("Você chegou as Lojas");
+                }
+                else if(andar == 3)
+                {
+                    Console.WriteLine("Você chegou aos Escritorios");
+                }
+                else if(andar == 4)
+                {
+                    Console.WriteLine("Você chegou a Cobertura");
+                }
+                else if(andar == 5)
+                {
+                    Console.WriteLine("Você chegou a Area de Servico");
+                }
+            }
+            else
+            {
+                Console.WriteLine(@"Você já está no Estacionamento, não é possivel descer mais");
+            }
         }
     }
 }
